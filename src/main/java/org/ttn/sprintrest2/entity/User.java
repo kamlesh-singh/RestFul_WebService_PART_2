@@ -2,10 +2,17 @@ package org.ttn.sprintrest2.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
+import org.springframework.hateoas.RepresentationModel;
 
-public class User {
+public class User  extends RepresentationModel<User> {
+
+    @ApiModelProperty(notes = "User ID", example = "1", required = true)
     private int id;
+
+    @ApiModelProperty(notes = "User Name", example = "kamlesh", required = true)
     private String name;
+    @ApiModelProperty(notes = "User Password", example = "123456", required = true)
     private String password;
 
 
