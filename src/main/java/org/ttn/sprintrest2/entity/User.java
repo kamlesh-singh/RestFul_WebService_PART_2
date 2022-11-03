@@ -1,10 +1,12 @@
 package org.ttn.sprintrest2.entity;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.hateoas.RepresentationModel;
 
+@JsonFilter("dynamic-filter")
 public class User  extends RepresentationModel<User> {
 
     @ApiModelProperty(notes = "User ID", example = "1", required = true)
