@@ -64,6 +64,16 @@ public class Controller {
         return emp;
     }
 
+    
+      @RequestMapping(value = "/dynamic",method = RequestMethod.GET)
+    public MappingJacksonValue getFilteredDate(){
+        List<User> list = new ArrayList<>(Arrays.asList(new User(1,"kamlesh","123456"),new User(2,"kam","123")));
+        SimpleBeanPropertyFilter filter=SimpleBeanPropertyFilter.filterOutAllExcept("name");
+        FilterProvider filters=new SimpleFilterProvider().addFilter("dynamic-filter",filter);
+         MappingJacksonValue mapping = new MappingJacksonValue(list);
+         mapping.setFilters(filters);
+        return mapping;
+    }
 
     @ApiOperation(value = "Add New User")
     @ApiResponses(value={@ApiResponse(code = 400,message = "User Not created")})
